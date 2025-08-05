@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS departments CASCADE;
 DROP TABLE IF EXISTS faculties;
 DROP TABLE IF EXISTS administrators;
 
@@ -10,7 +10,7 @@ CREATE TABLE departments (
 );
 
 CREATE TABLE faculties (
-  id serial PRIMARY KEY ,
+  id serial PRIMARY KEY,
   name text NOT NULL,
   title text NOT NULL,
   sub_department text NOT NULL,
