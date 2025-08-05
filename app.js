@@ -9,7 +9,8 @@ import adminRouter from "#api/admins";
 import facultyRouter from "#api/faculties";
 import deptRouter from "#api/departments";
 
-app.use(cors({ origin: /localhost/ }));
+app.use(cors({ origin: /localhost:3000/ }));
+
 // middleware
 app.use(express.json());
 app.use(morgan("dev"));

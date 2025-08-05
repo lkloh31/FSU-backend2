@@ -1,7 +1,7 @@
-import db from "#db/client";
-import { createAdmin } from "#db/queries/administrators";
-import { createDepartment } from "#db/queries/departments";
-import { createFaculty } from "#db/queries/faculties";
+import db from "./client.js";
+import { createAdmin } from "./queries/administrators.js";
+import { createDepartment } from "./queries/departments.js";
+import { createFaculty } from "./queries/faculties.js";
 
 await db.connect();
 await seed();
@@ -10,11 +10,35 @@ console.log("🌱 Database seeded.");
 
 async function seed() {
   const departments = [
-    { name: "Fire Nation", banner_img: "https://placeholdit.com/400x400/dddddd/999999", description: "bello" },
-    { name: "Water Tribe", banner_img: "https://placeholdit.com/400x400/dddddd/999999", description: "smile" },
-    { name: "Air Nomads", banner_img: "https://placeholdit.com/400x400/dddddd/999999", description: "cat can has cheezeborger" },
-    { name: "Earth Kingdom", banner_img: "https://placeholdit.com/400x400/dddddd/999999", description: "ahhhhhhhhhhhhhhhhh" },
+    {
+      name: "Fire Nation",
+      banner_img: "",
+      description: "Department of Engineering",
+    },
+    {
+      name: "Water Tribe",
+      banner_img: "",
+      description: "Department of Health Sciences",
+    },
+    {
+      name: "Air Nomads",
+      banner_img: "",
+      description: "Department of Philosophy & Arts",
+    },
+    {
+      name: "Earth Kingdom",
+      banner_img: "",
+      description: "Department of Natural Sciences",
+    },
   ];
+
+  for (const department of departments) {
+    await createDepartment(
+      department.name,
+      department.banner_img,
+      department.description
+    );
+  }
 
   const faculties = [
     {
@@ -77,7 +101,7 @@ async function seed() {
       sub_department: "Department of Aeromysticism",
       profile_img: "https://placeholdit.com/400x400/dddddd/999999",
       bio: "Seeing more than you ever will. Invented metalbending, specializes in calling out lies and breaking the floor underneath them.",
-      email: "",
+      email: "beifong@elementaluni.edu",
       department_id: 4,
     },
     {
@@ -91,16 +115,6 @@ async function seed() {
     },
   ];
 
-  const administrators = [{ name: "admin", username: "admin", password: "password" }];
-
-  for (const department of departments) {
-    await createDepartment(
-      department.name,
-      department.banner_img,
-      department.description
-    )
-  }
-
   for (const faculty of faculties) {
     await createFaculty(
       faculty.name,
@@ -113,11 +127,15 @@ async function seed() {
     );
   }
 
-  for (const admin of administrators) {
+  const administrators = [
+    { name: "superadmin", username: "admin", password: "password" },
+  ];
+
+  for (const administrator of administrators) {
     await createAdmin(
-      admin.name,
-      admin.username,
-      admin.password
+      administrator.name,
+      administrator.username,
+      administrator.password
     );
   }
 }

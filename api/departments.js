@@ -20,17 +20,16 @@ deptRouter.route("/").get(async (req, res) => {
     res.status(201).send(department)
 })
 
-deptRouter.param("id", async (req, res, next, id) => {
-    if(!/^\d+$/.test(id)) {
-    return res
-      .status(400)
-      .send("ID must be a positive integer");
-    }
-    const department = await getDepartmentById(id);
-    if (!department) return res.status(404).send("Department not found.");
 
-    req.department = department;
-    next();
+deptRouter.param("id", async (req, res, next, id) => {
+  if (!/^\d+$/.test(id)) {
+    return res.status(400).send("ID must be a positive integer");
+  }
+  const department = await getDepartmentById(id);
+  if (!department) return res.status(404).send("Department not found.");
+
+  req.department = department;
+  next();
 });
 
 deptRouter.route("/:id/:name").get(async (req, res) => {
