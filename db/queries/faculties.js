@@ -30,6 +30,7 @@ export async function createFaculty(
   return admin;
 }
 
+
 export async function getFaculties() {
   const sql = `
     SELECT *
@@ -38,6 +39,8 @@ export async function getFaculties() {
   const { rows: faculties } = await db.query(sql);
   return faculties;
 }
+
+export async function getFacultyById() {}
 
 export async function updateFaculty() {}
 

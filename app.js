@@ -23,7 +23,7 @@ app.route("/").get((req, res) => {
 });
 
 app.use("/admin", adminRouter);
-app.use("/faculty", facultyRouter);
+app.use("/faculties", facultyRouter);
 app.use("/departments", deptRouter);
 
 app.use((err, req, res, next) => {
