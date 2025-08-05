@@ -13,22 +13,22 @@ async function seed() {
     {
       name: "Fire Nation",
       banner_img: "",
-      description: "Department of Engineering",
+      description: "Driven by ambition and passion, the Fire Nation department empowers students to harness their inner flame with discipline and purpose. Here, raw energy becomes refined power, shaped through leadership training, strategy, and self-mastery. The department encourages calculated risk-taking, innovation, and the courage to spark change where it’s needed most.",
     },
     {
       name: "Water Tribe",
       banner_img: "",
-      description: "Department of Health Sciences",
+      description: "With a focus on adaptability and healing, the Water Tribe department teaches students to flow with life’s currents while nurturing both community and self. Through studies in cultural preservation, spiritual practices, and emotional intelligence, students are trained to restore, connect, and evolve. Empathy and flexibility are at the core of every lesson.",
     },
     {
       name: "Air Nomads",
       banner_img: "",
-      description: "Department of Philosophy & Arts",
+      description: "Rooted in endurance and tradition, the Earth Kingdom department values resilience, discipline, and a steady mind. Students learn to stand firm in their beliefs, navigate challenges with inner strength, and ground their decisions in reality. From seismic detection to diplomacy, our curriculum is designed to cultivate balance and unwavering resolve in both thought and action.",
     },
     {
       name: "Earth Kingdom",
       banner_img: "",
-      description: "Department of Natural Sciences",
+      description: "Dedicated to spiritual growth and freedom of thought, the Air Nomads department nurtures curiosity, peace, and non-attachment. Students explore philosophy, nonviolent intervention, and creativity through experiential learning. Light-hearted but wise, this department emphasizes personal enlightenment, harmony with nature, and the pursuit of joy.",
     },
   ];
 
