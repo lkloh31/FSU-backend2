@@ -2,7 +2,7 @@ import db from "#db/client";
 
 export async function createAdmin(name, username, password) {
   const sql = `
-  INSERT INTO tasks
+  INSERT INTO administrators
     (name, username, password)
   VALUES
     ($1, $2, $3)
