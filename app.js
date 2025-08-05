@@ -1,5 +1,6 @@
 import morgan from "morgan";
 import express from "express";
+import cors from "cors";
 const app = express();
 export default app;
 
@@ -7,6 +8,8 @@ import getUserFromToken from "#middleware/getUserFromToken";
 import adminRouter from "#api/admins";
 import facultyRouter from "#api/faculties";
 import deptRouter from "#api/departments";
+
+app.use(cors({ origin: /localhost:3000/ }));
 
 // middleware
 app.use(express.json());
