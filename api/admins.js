@@ -23,6 +23,6 @@ adminRouter
         const admin = await getAdminByUsernameAndPassword(username, password);
         if (!admin) return res.status(401).send("Invalid username or password.");
 
-        const token = createToken({ id: admin.id });
-        res.send(token);
+        const token = await createToken({ id: admin.id });
+        res.json(token);
     })

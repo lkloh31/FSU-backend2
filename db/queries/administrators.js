@@ -9,9 +9,10 @@ export async function createAdmin(name, username, password) {
     ($1, $2, $3)
   RETURNING *
   `;
+  const hashedPassword = await bcrypt.hash(password, 10);
   const {
     rows: [admin],
-  } = await db.query(sql, [name, username, password]);
+  } = await db.query(sql, [name, username, hashedPassword]);
   return admin;
 }
 

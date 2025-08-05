@@ -43,7 +43,7 @@ export async function getFaculties() {
 export async function getFacultyById(id) {
   const sql = `
     SELECT *
-    FROM faculty
+    FROM faculties
     WHERE id = $1
     `;
   const {
