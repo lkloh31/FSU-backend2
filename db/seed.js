@@ -1,4 +1,5 @@
 import db from "#db/client";
+import { createFaculty } from "./queries/faculties";
 
 await db.connect();
 await seed();
@@ -81,4 +82,11 @@ async function seed() {
   ];
 
   const administrators = [{ username: "admin", password: "password" }];
+
+  for (const department of departments) {
+  }
+
+  for (const faculty of faculties) {
+    await createFaculty(faculty);
+  }
 }

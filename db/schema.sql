@@ -8,16 +8,16 @@ CREATE TABLE faculties (
   name text NOT NULL,
   title text NOT NULL,
   sub_department text NOT NULL,
-  profile_img varbinary(max),
+  profile_img text,
   bio text NOT NULL,
   email text NOT NULL,
-  department_id int UNIQUE NOT NULL REFERENCES department(id) ON DELETE CASCADE
+  department_id int NOT NULL REFERENCES department(id) ON DELETE CASCADE
 );
 
 CREATE TABLE departments (
   id serial PRIMARY KEY ,
   name text UNIQUE NOT NULL,
-  banner_img varbinary(max),
+  banner_img text,
   description text NOT NULL
 );
 
