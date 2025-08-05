@@ -1,5 +1,6 @@
 import morgan from "morgan";
 import express from "express";
+import cors from "cors";
 const app = express();
 export default app;
 
@@ -8,6 +9,7 @@ import adminRouter from "#api/admins";
 import facultyRouter from "#api/faculties";
 import deptRouter from "#api/departments";
 
+app.use(cors({ origin: /localhost/ }));
 // middleware
 app.use(express.json());
 app.use(morgan("dev"));
@@ -20,7 +22,7 @@ app.route("/").get((req, res) => {
 });
 
 app.use("/admin", adminRouter);
-app.use("/faculty", facultyRouter);
+app.use("/faculties", facultyRouter);
 app.use("/departments", deptRouter);
 
 app.use((err, req, res, next) => {
