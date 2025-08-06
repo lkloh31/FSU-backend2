@@ -9,6 +9,7 @@ import {
   getDepartmentById,
   updateDepartmentById,
   deleteDepartmentById,
+  createDepartment,
 } from "#db/queries/departments";
 import { getFacultyByDepartmentId } from "#db/queries/faculties";
 
@@ -20,13 +21,13 @@ deptRouter
   })
   .post(
     requireUser,
-    requireBody(["name", "description", "banner_img"]),
+    requireBody(["name", "banner_img", "description"]),
     async (req, res) => {
       const { name, description, banner_img } = req.body;
       const department = await createDepartment({
         name,
-        description,
         banner_img,
+        description,
       });
       res.status(201).send(department);
     }
