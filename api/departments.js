@@ -10,6 +10,7 @@ import {
   updateDepartmentById,
   deleteDepartmentById,
 } from "#db/queries/departments";
+import { getFacultyByDepartmentId } from "#db/queries/faculties";
 
 deptRouter
   .route("/")
@@ -37,7 +38,7 @@ deptRouter.param("id", async (req, res, next, id) => {
   }
   const department = await getDepartmentById(id);
   if (!department) return res.status(404).send("Department not found.");
-
+  
   req.department = department;
   next();
 });
@@ -64,6 +65,14 @@ deptRouter
   )
   .delete(requireUser, async (req, res) => {
     const { id } = req.department.id;
-    const department = deleteDepartmentById(id);
+    const department = await deleteDepartmentById(id);
     res.sendStatus(204);
   });
+
+deptRouter
+  .route("/:id/faculties")
+  .get(async (req, res) => {
+    const id = req.department.id    
+    const faculties = await getFacultyByDepartmentId(id);
+    res.send(faculties)
+  })

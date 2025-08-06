@@ -16,7 +16,7 @@ adminRouter
     const admin = await createAdmin(name, username, password);
 
     const token = createToken({ id: admin.id });
-    res.status(201).json(token);
+    res.status(201).json({token});
   });
 
 adminRouter
@@ -27,5 +27,5 @@ adminRouter
     if (!admin) return res.status(401).send("Invalid username or password.");
 
     const token = await createToken({ id: admin.id });
-    res.json(token);
+    res.json({token});
   });

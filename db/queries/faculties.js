@@ -95,3 +95,13 @@ export async function deleteFaculty(id) {
     `;
   await db.query(sql, [id]);
 }
+
+export async function getFacultyByDepartmentId(id) {
+  const sql = `
+  SELECT *
+  FROM faculties
+  WHERE department_id = $1
+  `;
+  const { rows: faculty } = await db.query(sql, [id]);
+  return faculty;
+}
