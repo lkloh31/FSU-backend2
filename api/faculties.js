@@ -24,18 +24,18 @@ facultyRouter.route("/").get(async (req, res) => {
     res.status(201).send(faculty)
 })
 
-// facultyRouter.param("id", async (req, res, next, id) => {
-//     if(!/^\d+$/.test(id)) {
-//     return res
-//       .status(400)
-//       .send("ID must be a positive integer");
-//     }
-//     const faculty = await getFacultyById(id);
-//     if (!faculty) return res.status(404).send("Faculty not found.");
+facultyRouter.param("id", async (req, res, next, id) => {
+    if(!/^\d+$/.test(id)) {
+    return res
+      .status(400)
+      .send("ID must be a positive integer");
+    }
+    const faculty = await getFacultyById(id);
+    if (!faculty) return res.status(404).send("Faculty not found.");
 
-//     req.faculty = faculty;
-//     next();
-// });
+    req.faculty = faculty;
+    next();
+});
 
 facultyRouter.route("/:id").get(async(req, res) => {
     res.send(req.faculty)
