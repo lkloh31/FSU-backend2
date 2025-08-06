@@ -1,6 +1,6 @@
 import db from "#db/client";
 
-export async function createDepartment(name, banner_img, description) {
+export async function createDepartment({name, banner_img, description}) {
   const sql = `
     INSERT INTO departments
       (name, banner_img, description)
@@ -35,7 +35,7 @@ export async function getDepartmentById(id) {
   return department;
 }
 
-export async function updateDepartmentById(id, name, banner_img, description) {
+export async function updateDepartmentById({id, name, banner_img, description}) {
   const sql = `
   UPDATE departments
   SET

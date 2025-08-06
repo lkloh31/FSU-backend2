@@ -1,7 +1,7 @@
 import db from "#db/client";
 import bcrypt from "bcrypt";
 
-export async function createAdmin(name, username, password) {
+export async function createAdmin({name, username, password}) {
   const sql = `
   INSERT INTO administrators
     (name, username, password)
@@ -28,7 +28,7 @@ export async function getAdminById(id) {
   return admin;
 }
 
-export async function getAdminByUsernameAndPassword(username, password) {
+export async function getAdminByUsernameAndPassword({username, password}) {
   const sql = `
   SELECT *
   FROM administrators

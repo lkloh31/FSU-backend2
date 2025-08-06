@@ -1,6 +1,6 @@
 import db from "#db/client";
 
-export async function createFaculty(
+export async function createFaculty({
   name,
   title,
   sub_department,
@@ -8,7 +8,7 @@ export async function createFaculty(
   bio,
   email,
   department_id
-) {
+}) {
   const sql = `
   INSERT INTO faculties
     (name, title, sub_department, profile_img, bio, email, department_id)
@@ -52,7 +52,7 @@ export async function getFacultyById(id) {
   return faculty;
 }
 
-export async function updateFaculty(
+export async function updateFaculty({
   id,
   name,
   title,
@@ -61,7 +61,7 @@ export async function updateFaculty(
   bio,
   email,
   department_id
-) {
+}) {
   const sql = `
   UPDATE faculties
   SET
